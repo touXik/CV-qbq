@@ -1084,7 +1084,7 @@ Travel </li>
 <span class="wpcf7-form-control-wrap your-subject"><input id="subject"  type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </label></p>
 <p><label>Votre message<br />
 <span class="wpcf7-form-control-wrap your-message"><textarea  id="message" name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label></p>
-<p><input id="btn"  type="submit"  value="Envoyer"  /></p></form></div>
+<p><input id="btn"  type="submit"  value="Envoyer" onclick="sendMail()"  /></p></form></div>
 </div>
 <!-- <div id="map" data-latitude="40.185599" data-longitude="44.515043"></div> -->
 </section> </div>
@@ -1136,8 +1136,19 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 <script type='text/javascript' src='wp-content/themes/certy/framework/backend/widgets/sticky-widget/assets/sticky-widget.js' id='sticky-js-js'></script>
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
+
+ <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
 <script>
-   function sendMail(){
+ 
+ type="text/javascript">
+   (function(){
+      emailjs.init("rm5LskMNdFrkZ7kvS");
+   })();
+</script>
+<script>
+    function sendMail(){
       var params ={
         name : document.getElementById("name").value,
         email : document.getElementById("email").value,
@@ -1159,6 +1170,7 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
         alert("message envoiyer avec succe ! merci ");
     }
    </script>
+
 
 
 </body>
